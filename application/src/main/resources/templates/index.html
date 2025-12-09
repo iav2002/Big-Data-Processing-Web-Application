@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(160deg, rgba(30,215,96,1) 0%, rgba(25,20,20,1) 100%);
+            font-family: 'Roboto', sans-serif;
+            color: white;
+        }
+
+        .welcome-button {
+            padding: 10px 20px;
+            font-size: 20px;
+            font-weight: bold;
+            background-color: #1DB954; /* Spotify green */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .welcome-button:hover {
+            background-color: #1aa34a; 
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <button class="welcome-button" onclick="window.location.href='/login'">WELCOME</button>
+</body>
+</html>

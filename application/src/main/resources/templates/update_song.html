@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Update Song</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; 
+            margin: 0;
+            background: linear-gradient(160deg, rgba(30,215,96,1) 0%, rgba(25,20,20,1) 100%);
+            font-family: 'Roboto', sans-serif;
+            color: white;
+        }
+
+        .card {
+            width: 400px; 
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px; 
+        }
+
+        .logo {
+            height: 50px;
+            width: auto;
+        }
+
+        input[type='text'], input[type='password'] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px; 
+            border: none;
+            border-radius: 5px;
+            background-color: #333; 
+            color: #fff; 
+        }
+
+        .btn-primary, .btn-info {
+            width: 100%;
+            padding: 10px;
+            background-color: #1DB954;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-primary:hover, .btn-info:hover {
+            background-color: #282828;
+        }
+
+        .btn-info {
+            margin-top: 10px; 
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="card-header">
+            <img src="/images/logoSpotify.png" alt="Spotify Logo" class="logo">
+            <h2>Update Song</h2>
+        </div>
+        <div class="card-body">
+            <form th:action="@{/saveSong}" th:object="${song}" method="POST">
+                <input type="hidden" th:field="*{id}" />
+                <div class="form-group">
+                    <label for="title">Song Title</label>
+                    <input type="text" th:field="*{title}" class="form-control" placeholder="Enter Song Title">
+                </div>
+                <div class="form-group">
+                    <label for="artist">Song Artist</label>
+                    <input type="text" th:field="*{artist}" class="form-control" placeholder="Enter Song Artist">
+                </div>
+                <button type="submit" class="btn btn-primary">Update Song</button>
+            </form>
+            <a th:href="@{/songs}" class="btn btn-info">Back to Song List</a>
+        </div>
+    </div>
+</body>
+</html>
